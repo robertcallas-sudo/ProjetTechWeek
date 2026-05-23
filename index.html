@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devin'Artiste</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div id="logo">Devin'Artiste</div>
+    <span id="header-texte">Teste ta culture musicale !</span>
+  </header>
+
+  <div id="ecran-accueil">
+    <div class="flash flash1"></div>
+    <div class="flash flash2"></div>
+    <div class="flash flash3"></div>
+    <div id="discoBallLight"></div>
+    <div id="discoBall">
+      <div id="discoBallMiddle"></div>
+    </div>
+
+<div id="banniere">
+  <span class="note">🎵</span>
+  <span class="note">🎶</span>
+  <span class="note">🎵</span>
+  <span class="note">🎶</span>
+  <span class="note">🎵</span>
+  <span class="note">🎶</span>
+  <span class="note">🎵</span>
+  <span class="note">🎶</span>
+  <span class="note">🎵</span>
+  <span class="note">🎶</span>
+  <span class="note">🎵</span>
+  <span class="note">🎶</span>
+</div>
+
+    <h1>Bienvenue sur<br>Devin'Artiste 🎶</h1>
+    <p id="accroche">Tu crois vraiment connaître tes artistes ?<br>Prouve-le !</p>
+    <button onclick="allerVersJoueurs()">JOUER</button>
+  </div>
+
+  <div id="ecran-joueurs" class="cache">
+    <h2>Qui joue ? 🎮</h2>
+    <input id="joueur1" type="text" placeholder="Joueur 1 (obligatoire)" maxlength="12">
+    <input id="joueur2" type="text" placeholder="Joueur 2 (optionnel)" maxlength="12">
+    <input id="joueur3" type="text" placeholder="Joueur 3 (optionnel)" maxlength="12">
+    <input id="joueur4" type="text" placeholder="Joueur 4 (optionnel)" maxlength="12">
+    <p id="erreur-joueurs" class="cache">Prénom invalide !</p>
+    <p style="color:white; font-weight:600; margin-top:16px;">Combien de questions ?</p>
+    <button onclick="demarrerJeu(10)">10 questions</button>
+    <button onclick="demarrerJeu(20)">20 questions</button>
+    <button onclick="demarrerJeu(30)">30 questions</button>
+  </div>
+
+  <div id="ecran-quiz" class="cache">
+    <div id="entete">
+      <span>Question <span id="numero">1</span> / <span id="total">30</span></span>
+      <span>Score : <span id="score">0</span></span>
+    </div>
+    <button id="bouton-abandonner" onclick="abandonner()">🚪 Abandonner</button>
+    <p id="minuteur">🔍 Image révélée dans <span id="compte-a-rebours">5</span>s — ou réponds maintenant !</p>
+    <img id="photo" src="" alt="Photo de l'artiste">
+    <p id="indice"></p>
+    <div id="boutons-reponses">
+      <button class="reponse" onclick="verifierReponse(this)"></button>
+      <button class="reponse" onclick="verifierReponse(this)"></button>
+      <button class="reponse" onclick="verifierReponse(this)"></button>
+      <button class="reponse" onclick="verifierReponse(this)"></button>
+    </div>
+    <p id="message-resultat"></p>
+    <button id="bouton-suivant" class="cache" onclick="questionSuivante()">Suivant →</button>
+  </div>
+
+  <div id="ecran-fin" class="cache">
+    <h2>Fin de la partie !</h2>
+    <p id="score-final"></p>
+    <div id="recapitulatif"></div>
+    <button onclick="recommencer()">Rejouer</button>
+    <div id="signature">
+      <p>✨ Un projet créé avec passion par</p>
+      <p id="noms">Robert · Tegra · Serena</p>
+      <p id="contexte">Tech Week — Paris Dauphine · 2026</p>
+    </div>
+  </div>
+
+  <div id="curseur"></div>
+
+  <script src="script.js"></script>
+  <div id="egaliseur">
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+  <div class="barre"></div>
+</div>
+</body>
+</html>
+
