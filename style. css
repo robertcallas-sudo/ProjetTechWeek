@@ -1,0 +1,656 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700&display=swap');
+
+/* ══ BASE ══ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff6eb4, #ffca28, #00e5ff, #ff6eb4);
+  background-size: 400% 400%;
+  animation: gradientAnime 6s ease infinite;
+  cursor: none;
+}
+
+@keyframes gradientAnime {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cache {
+  display: none !important;
+}
+
+/* ══ HEADER ══ */
+header {
+  background-color: rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
+#logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 26px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#header-texte {
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ══ ACCUEIL ══ */
+#ecran-accueil {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#ecran-accueil h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 38px;
+  color: white;
+  line-height: 1.4;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+#accroche {
+  font-size: 16px;
+  color: white;
+  line-height: 1.7;
+  max-width: 320px;
+  background: rgba(0,0,0,0.35);
+  padding: 14px 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(4px);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+/* ══ BOUTONS ══ */
+button {
+  background-color: #fff;
+  color: #c2186e;
+  border: 3px solid #fff;
+  padding: 12px 32px;
+  font-size: 17px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background-color: #1a1a2e;
+  color: white;
+  border-color: #1a1a2e;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+}
+
+button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+/* ══ QUIZ ══ */
+#ecran-quiz {
+  padding: 20px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+#entete {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  padding: 10px 16px;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+/* ══ MINUTEUR ══ */
+#minuteur {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.3);
+  padding: 5px 14px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+/* ══ PHOTO ══ */
+#photo {
+  width: 100%;
+  max-width: 340px;
+  height: 300px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 16px;
+  border: 4px solid white;
+  display: block;
+  margin: 0 auto 10px auto;
+  filter: blur(12px);
+  transition: filter 0.8s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+#photo.chargement {
+  transition: none !important;
+}
+
+#photo.deFloute {
+  filter: blur(0px);
+}
+
+/* ══ INDICE ══ */
+#indice {
+  font-style: italic;
+  color: white;
+  margin-bottom: 14px;
+  font-weight: 600;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.3);
+  padding: 5px 14px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+/* ══ BOUTONS RÉPONSES ══ */
+#boutons-reponses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.reponse {
+  background-color: white;
+  color: #1a1a2e;
+  border: 2px solid white;
+  padding: 14px 8px;
+  font-size: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-top: 0;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+  transition: all 0.15s ease;
+}
+
+.reponse:hover:not(:disabled) {
+  background-color: #1a1a2e;
+  color: white;
+  border-color: #1a1a2e;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+}
+
+/* Bonne réponse : fond vert foncé + texte blanc + ✓ */
+.correct {
+  background-color: #2ecc71 !important;
+  border-color: #2ecc71 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.2) !important;
+}
+
+.mauvais {
+  background-color: #e74c3c !important;
+  border-color: #e74c3c !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.2) !important;
+}
+
+.correct::before {
+  content: '✓  ';
+}
+
+.mauvais::before {
+  content: '✗  ';
+}
+
+/* Autres boutons désactivés : grisés */
+.reponse:disabled:not(.correct):not(.mauvais) {
+  background-color: #eee;
+  color: #999;
+  border-color: #ddd;
+  box-shadow: none;
+}
+
+/* ══ MESSAGE RÉSULTAT ══ */
+#message-resultat {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 12px;
+  min-height: 24px;
+  color: white;
+}
+
+/* ══ FIN ══ */
+#ecran-fin {
+  padding: 40px 20px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+#ecran-fin h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 32px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+#score-final {
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  margin: 12px 0;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+#recapitulatif {
+  text-align: left;
+  max-width: 340px;
+  margin: 16px auto;
+  max-height: 260px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.92);
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.ligne-recap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #222;
+}
+
+.ligne-recap:last-child {
+  border-bottom: none;
+}
+
+.puce-ok { color: #1a5c35; font-size: 16px; font-weight: 700; }
+.puce-ko { color: #7a1a1a; font-size: 16px; font-weight: 700; }
+
+/* ══ SIGNATURE ══ */
+#signature {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid rgba(255,255,255,0.4);
+  color: white;
+  font-size: 13px;
+  line-height: 1.8;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+#noms {
+  font-family: 'Pacifico', cursive;
+  font-size: 20px;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+#contexte {
+  font-size: 12px;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 1px;
+}
+
+/* ══ CURSEUR MAGIQUE ══ */
+#curseur {
+  position: fixed;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff, #e91e8c);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px #e91e8c, 0 0 24px #ffca28;
+  transition: transform 0.08s ease;
+}
+
+.trainee {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: disparaitre 0.5s ease forwards;
+}
+
+@keyframes disparaitre {
+  0%   { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0;   transform: translate(-50%, -50%) scale(0); }
+}
+
+/* ══ RESPONSIVE MOBILE ══ */
+@media (max-width: 600px) {
+  header { padding: 10px 16px; }
+  #logo { font-size: 20px; }
+  #header-texte { font-size: 12px; }
+  #ecran-accueil { padding: 40px 16px; }
+  #ecran-accueil h1 { font-size: 28px; }
+  #ecran-quiz { padding: 14px; }
+  #photo { max-width: 100%; height: 220px; }
+  #boutons-reponses { max-width: 100%; }
+  .reponse { font-size: 13px; padding: 12px 6px; }
+  #entete { font-size: 13px; padding: 8px 12px; }
+  #recapitulatif { max-width: 100%; }
+  #ecran-fin { padding: 30px 16px; }
+}
+
+/* ══ BOULE DISCO ══ */
+#discoBallLight {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin: 0 auto 0 auto;
+  border-radius: 100%;
+  background-color: white;
+  opacity: 0.2;
+  filter: blur(20px);
+}
+
+#discoBall {
+  transform-style: preserve-3d;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin: -60px auto 20px auto;
+  animation: rotateDiscoBall 18s linear infinite;
+  touch-action: none;
+}
+
+#discoBallMiddle {
+  height: 100%;
+  border-radius: 100%;
+  background: linear-gradient(top, #111, #333);
+  position: absolute;
+  animation: rotateDiscoBallMiddle 18s linear infinite;
+}
+
+.square {
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 6px;
+  height: 6px;
+}
+
+@keyframes rotateDiscoBall {
+  0%   { transform: rotateX(90deg) rotateZ(0deg); }
+  100% { transform: rotateX(90deg) rotateZ(360deg); }
+}
+
+@keyframes rotateDiscoBallMiddle {
+  0%   { transform: rotateX(90deg) rotateY(0deg); }
+  100% { transform: rotateX(90deg) rotateY(-360deg); }
+}
+
+@keyframes reflect {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* ══ FLASHS DISCO ══ */
+@keyframes flash1 {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50%       { opacity: 0.25; transform: scale(1.4); }
+}
+@keyframes flash2 {
+  0%, 100% { opacity: 0; transform: scale(1) rotate(45deg); }
+  50%       { opacity: 0.15; transform: scale(1.6) rotate(45deg); }
+}
+@keyframes flash3 {
+  0%, 100% { opacity: 0; transform: scale(1) rotate(20deg); }
+  50%       { opacity: 0.2; transform: scale(1.2) rotate(20deg); }
+}
+
+.flash {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: 0;  /* ← derrière */
+}
+
+#discoBallLight {
+  z-index: 1;  /* ← devant les flashs */
+}
+
+#discoBall {
+  z-index: 2;  /* ← encore devant */
+}
+/* ══ ÉCRAN JOUEURS ══ */
+#ecran-joueurs {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+#ecran-joueurs h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+  margin-bottom: 8px;
+}
+
+#ecran-joueurs input {
+  width: 260px;
+  padding: 12px 16px;
+  border-radius: 50px;
+  border: 3px solid white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  background: rgba(255,255,255,0.9);
+  color: #1a1a2e;
+  outline: none;
+}
+
+#ecran-joueurs input:focus {
+  background: white;
+  border-color: #e91e8c;
+}
+
+#erreur-joueurs {
+  background: rgba(255,255,255,0.9);
+  color: #e74c3c !important;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+}
+
+/* ══ BOUTON ABANDONNER ══ */
+#bouton-abandonner {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.5);
+  font-size: 13px;
+  padding: 6px 16px;
+  margin-bottom: 8px;
+  box-shadow: none;
+}
+
+#bouton-abandonner:hover {
+  background: rgba(255,0,0,0.3);
+  border-color: white;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ══ BANNIÈRE NOTES ══ */
+#banniere {
+  width: 100%;
+  backdrop-filter: blur(4px);
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+}
+
+.note {
+  font-size: 22px;
+  display: inline-block;
+  animation: vague 1.6s ease-in-out infinite;
+}
+
+.note:nth-child(1)  { animation-delay: 0s; }
+.note:nth-child(2)  { animation-delay: 0.13s; }
+.note:nth-child(3)  { animation-delay: 0.26s; }
+.note:nth-child(4)  { animation-delay: 0.39s; }
+.note:nth-child(5)  { animation-delay: 0.52s; }
+.note:nth-child(6)  { animation-delay: 0.65s; }
+.note:nth-child(7)  { animation-delay: 0.78s; }
+.note:nth-child(8)  { animation-delay: 0.91s; }
+.note:nth-child(9)  { animation-delay: 1.04s; }
+.note:nth-child(10) { animation-delay: 1.17s; }
+.note:nth-child(11) { animation-delay: 1.30s; }
+.note:nth-child(12) { animation-delay: 1.43s; }
+
+@keyframes vague {
+  0%, 100% { transform: translateY(0px);    opacity: 0.6; }
+  50%       { transform: translateY(-10px); opacity: 1;   }
+}
+
+/* ══ ÉCRAN JOUEURS ══ */
+#ecran-joueurs {
+  padding: 40px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+#ecran-joueurs h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 32px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  animation: titreBouge 2s ease-in-out infinite;
+}
+
+@keyframes titreBouge {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* Séparateur visuel */
+.separateur {
+  width: 80%;
+  height: 2px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 2px;
+  margin: 6px 0;
+}
+
+#ecran-joueurs input {
+  width: 280px;
+  padding: 14px 20px;
+  border-radius: 50px;
+  border: 3px solid rgba(255,255,255,0.6);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  background: rgba(255,255,255,0.85);
+  color: #1a1a2e;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+#ecran-joueurs input:focus {
+  background: white;
+  border-color: #e91e8c;
+  transform: scale(1.0)
+}
+/* ══ ÉGALISEUR ══ */
+#egaliseur {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 10px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.barre {
+  width: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 4px 4px 0 0;
+  animation: danser 1s ease-in-out infinite alternate;
+}
+
+.barre:nth-child(1)  { animation-duration: 0.8s; }
+.barre:nth-child(2)  { animation-duration: 1.1s; }
+.barre:nth-child(3)  { animation-duration: 0.6s; }
+.barre:nth-child(4)  { animation-duration: 1.3s; }
+.barre:nth-child(5)  { animation-duration: 0.9s; }
+.barre:nth-child(6)  { animation-duration: 0.7s; }
+.barre:nth-child(7)  { animation-duration: 1.2s; }
+.barre:nth-child(8)  { animation-duration: 0.5s; }
+.barre:nth-child(9)  { animation-duration: 1.0s; }
+.barre:nth-child(10) { animation-duration: 0.8s; }
+.barre:nth-child(11) { animation-duration: 1.4s; }
+.barre:nth-child(12) { animation-duration: 0.6s; }
+.barre:nth-child(13) { animation-duration: 1.1s; }
+.barre:nth-child(14) { animation-duration: 0.9s; }
+.barre:nth-child(15) { animation-duration: 0.7s; }
+
+@keyframes danser {
+  from { height: 4px; }
+  to   { height: 35px; }
+}
